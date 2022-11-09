@@ -29,10 +29,27 @@ class Login extends React.Component {
     });
   };
 
-  exportInfoGlobal = () => {
-    const { dispatch } = this.props;
+  exportInfoGlobal = async () => {
+    const { dispatch, history } = this.props;
 
     dispatch(infoUser(this.state));
+    this.setState({
+      email: '',
+      name: '',
+      disabled: true,
+    });
+
+    localStorage.setItem('token', await this.getToken());
+
+    history.push('/game');
+  };
+
+  getToken = () => {
+    const request = fetch('https://opentdb.com/api_token.php?command=request')
+      .then((response) => response.json())
+      .then((data) => data.token)
+      .catch((error) => console.log(error));
+    return request;
   };
 
   render() {
@@ -73,6 +90,14 @@ class Login extends React.Component {
         >
           Play
         </button>
+
+        <button
+          type="button"
+          data-testid="btn-settings"
+          onClick={ () => { const { history } = this.props; history.push('/settings'); } }
+        >
+          Settings
+        </button>
       </div>
     );
   }
@@ -80,6 +105,9 @@ class Login extends React.Component {
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default connect()(Login);
