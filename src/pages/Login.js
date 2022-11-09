@@ -38,21 +38,18 @@ class Login extends React.Component {
       name: '',
       disabled: true,
     });
+
+    localStorage.setItem('token', await this.getToken());
+
     history.push('/game');
-
-    const fetchToken = await this.token();
-
-    localStorage.setItem('userToken', await fetchToken);
   };
 
-  token = async () => {
-    try {
-      const response = await fetch('https://opentdb.com/api_token.php?command=request');
-      const data = await response.json();
-      return data.token;
-    } catch (error) {
-      return console.error;
-    }
+  getToken = () => {
+    const request = fetch('https://opentdb.com/api_token.php?command=request')
+      .then((response) => response.json())
+      .then((data) => data.token)
+      .catch((error) => console.log(error));
+    return request;
   };
 
   render() {
