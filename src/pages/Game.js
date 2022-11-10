@@ -24,10 +24,6 @@ class Game extends React.Component {
     return response;
   };
 
-  // createNewArray = () => {
-
-  // };
-
   // ArrAleatorio = (arr) => {
   //   for (let i = arr.length - 1; i > 0; i -= 1) {
   //     const j = Math.floor(Math.random() * (i + 1));
@@ -38,8 +34,6 @@ class Game extends React.Component {
 
   render() {
     const { questions, qActual } = this.state;
-    console.log('asdasdas', questions);
-    console.log(qActual);
     return (
       <>
         <HeaderUser />
