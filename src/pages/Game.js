@@ -30,8 +30,7 @@ class Game extends React.Component {
       this.checkTokenError();
     });
 
-    const oneSecond = 1000;
-    setInterval(this.questionsTimer, oneSecond);
+    this.intervalCounter();
   }
 
   getQuestions = async (token) => {
@@ -90,9 +89,9 @@ class Game extends React.Component {
 
   questionsTimer = () => {
     const { timer } = this.state;
+
     if (timer === 0) {
       this.setState({
-        timer: 30,
         disabled: true,
         viewBtnNext: true,
       });
@@ -103,9 +102,16 @@ class Game extends React.Component {
     }
   };
 
+  intervalCounter = () => {
+    const oneSecond = 1000;
+    setInterval(this.questionsTimer, oneSecond);
+  };
+
   render() {
     const { questions, posi, viewBtnNext,
       corSimCorNao, timer, disabled, randomAnswers } = this.state;
+    const n4 = 4;
+    const { history } = this.props;
     return (
       <div className="cssMesmo">
         <HeaderUser />
@@ -150,7 +156,11 @@ class Game extends React.Component {
                                 viewBtnNext: false,
                                 corSimCorNao: false,
                                 disabled: false,
+                                timer: 30,
                               });
+                              if (posi === n4) {
+                                history.push('/feedback');
+                              }
                             } }
                           >
                             Next
