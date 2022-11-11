@@ -1,12 +1,13 @@
-button{
-  padding: 10;
-  margin: 10;
+button {
   box-sizing: border-content;
+  margin: 10;
+  padding: 10;
 }
+
 .green {
   border: 3px solid rgb(6, 240, 15);
 }
 
 .red {
-  border: 3px solid red
+  border: 3px solid red;
 }
