@@ -5,17 +5,17 @@ const INITIAL_STATE = {
   name: '',
 };
 
-const user = (state = INITIAL_STATE, actions) => {
-  switch (actions.type) {
+const player = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
   case INFO_USER:
     return {
       ...state,
-      email: actions.info.email,
-      name: actions.info.name,
+      email: action.info.email,
+      name: action.info.name,
     };
   default:
     return state;
   }
 };
 
-export default user;
+export default player;

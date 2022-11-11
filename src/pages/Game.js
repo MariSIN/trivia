@@ -9,52 +9,78 @@ class Game extends React.Component {
     questions: [],
     status: 0,
     posi: 0,
-    viewBtnNext: 0,
+    viewBtnNext: false,
     corSimCorNao: false,
+    timer: 30,
+    disabled: false,
+    randomAnswers: [],
   };
 
   async componentDidMount() {
     const tokenUser = localStorage.getItem('token');
-    const a = await this.getQuestion(tokenUser);
+    const gotQuestions = await this.getQuestions(tokenUser);
+    const sortQuestions = gotQuestions.results
+      .map((item) => this.sortidos([item.correct_answer, ...item.incorrect_answers]));
+    console.log(sortQuestions);
     this.setState({
-      questions: a.results,
-      status: a.response_code,
+      questions: gotQuestions.results,
+      randomAnswers: sortQuestions,
+      status: gotQuestions.response_code,
     }, () => {
-      this.funcao();
+      this.checkTokenError();
     });
+
+    const oneSecond = 1000;
+    setInterval(this.questionsTimer, oneSecond);
   }
 
-  getQuestion = async (a) => {
-    const request = await fetch(`https://opentdb.com/api.php?amount=5&token=${a}`);
+  getQuestions = async (token) => {
+    const request = await fetch(`https://opentdb.com/api.php?amount=5&token=${token}`);
     const response = await request.json();
     return response;
   };
 
-  funcao = () => {
-    const num = 3;
+  checkTokenError = () => {
+    const errorNumber = 3;
     const { status } = this.state;
     const { history } = this.props;
-    if (status === num) {
+    if (status === errorNumber) {
       localStorage.clear();
       history.push('/');
     }
   };
 
-  sortidos = (a) => {
+  sortidos = (answers) => {
     const num = 0.5;
-    const x = a.sort(() => Math.random() - num);
+    const x = answers.sort(() => Math.random() - num);
     return x;
   };
 
   handleClick = () => {
     const { viewBtnNext } = this.state;
-    if (viewBtnNext === 0) {
-      this.setState({ viewBtnNext: 1, corSimCorNao: true });
+    if (!viewBtnNext) {
+      this.setState({ viewBtnNext: true, corSimCorNao: true });
+    }
+  };
+
+  questionsTimer = () => {
+    const { timer } = this.state;
+    if (timer === 0) {
+      this.setState({
+        timer: 30,
+        disabled: true,
+        viewBtnNext: true,
+      });
+    } else {
+      this.setState((prev) => ({
+        timer: prev.timer - 1,
+      }));
     }
   };
 
   render() {
-    const { questions, posi, viewBtnNext, corSimCorNao } = this.state;
+    const { questions, posi, viewBtnNext,
+      corSimCorNao, timer, disabled, randomAnswers } = this.state;
     return (
       <div className="cssMesmo">
         <HeaderUser />
@@ -63,49 +89,51 @@ class Game extends React.Component {
           questions.map((item, index) => {
             if (posi === index) {
               return (
-
-                <div key={ item.difficulty }>
-                  <span data-testid="question-category">{item.category}</span>
-                  <span data-testid="question-text">{item.question}</span>
-                  <div data-testid="answer-options">
-                    {
-                      this.sortidos([item.correct_answer, ...item.incorrect_answers])
-                        .map((it, ind) => {
-                          const a = item.correct_answer === it ? 'green' : 'red';
-                          return (
-                            <button
-                              key={ it.type }
-                              data-testid={ item.correct_answer === it
-                                ? 'correct-answer' : `wrong-answer-${ind}` }
-                              type="button"
-                              onClick={ this.handleClick }
-                              className={ corSimCorNao ? a : '' }
-                            >
-                              {it}
-                            </button>
-                          );
-                        })
-                    }
-                    {
-                      viewBtnNext === 1 && (
-                        <button
-                          type="button"
-                          data-testid="btn-next"
-                          onClick={ () => {
-                            this.setState({
-                              posi: posi + 1,
-                              viewBtnNext: 0,
-                              corSimCorNao: false,
-                            });
-                          } }
-                        >
-                          Next
-                        </button>
-                      )
-                    }
+                <div>
+                  <p>{ timer }</p>
+                  <div key={ item.difficulty }>
+                    <span data-testid="question-category">{item.category}</span>
+                    <span data-testid="question-text">{item.question}</span>
+                    <div data-testid="answer-options">
+                      {
+                        randomAnswers[index]
+                          .map((it, ind) => {
+                            const a = item.correct_answer === it ? 'green' : 'red';
+                            return (
+                              <button
+                                key={ it.type }
+                                data-testid={ item.correct_answer === it
+                                  ? 'correct-answer' : `wrong-answer-${ind}` }
+                                type="button"
+                                onClick={ this.handleClick }
+                                disabled={ disabled }
+                                className={ corSimCorNao ? a : '' }
+                              >
+                                {it}
+                              </button>
+                            );
+                          })
+                      }
+                      {
+                        viewBtnNext && (
+                          <button
+                            type="button"
+                            data-testid="btn-next"
+                            onClick={ () => {
+                              this.setState({
+                                posi: posi + 1,
+                                viewBtnNext: false,
+                                corSimCorNao: false,
+                              });
+                            } }
+                          >
+                            Next
+                          </button>
+                        )
+                      }
+                    </div>
                   </div>
                 </div>
-
               );
             }
             return null;
