@@ -1,21 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import HeaderUser from '../components/HeaderUser';
 
 class Game extends React.Component {
   state = {
     questions: [],
-    qActual: [],
+    status: 0,
+    posi: 0,
   };
 
   async componentDidMount() {
-    const { questions } = this.state;
     const tokenUser = localStorage.getItem('token');
     const a = await this.getQuestion(tokenUser);
     this.setState({
-      questions: a,
-    }, () => this.setState({
-      qActual: questions,
-    }));
+      questions: a.results,
+      status: a.response_code,
+    }, () => {
+      this.funcao();
+    });
   }
 
   getQuestion = async (a) => {
@@ -24,34 +27,67 @@ class Game extends React.Component {
     return response;
   };
 
-  // ArrAleatorio = (arr) => {
-  //   for (let i = arr.length - 1; i > 0; i -= 1) {
-  //     const j = Math.floor(Math.random() * (i + 1));
-  //     [arr[i], arr[j]] = [arr[j], arr[i]];
-  //   }
-  //   return arr;
-  // };
+  funcao = () => {
+    const num = 3;
+    const { status } = this.state;
+    const { history } = this.props;
+    if (status === num) {
+      localStorage.clear();
+      history.push('/');
+    }
+  };
+
+  sortidos = (a) => {
+    const num = 0.5;
+    const x = a.sort(() => Math.random() - num);
+    return x;
+  };
 
   render() {
-    const { questions, qActual } = this.state;
+    const { questions, posi } = this.state;
     return (
       <>
         <HeaderUser />
         <h1>Game</h1>
-        <div>
-          {/* {
-            substitute.results.map((item, index) => (
-              <div key={ index }>
-                <span data-testid="question-category">{item.caregory}</span>
-                <span data-testid="question-text">{item.question}</span>
+        {
+          questions.map((item, index) => {
+            if (posi === index) {
+              return (
 
-              </div>
-            ))
-          } */}
-        </div>
+                <div key={ item.difficulty }>
+                  <span data-testid="question-category">{item.category}</span>
+                  <span data-testid="question-text">{item.question}</span>
+                  <div data-testid="answer-options">
+                    {
+                      this.sortidos([item.correct_answer, ...item.incorrect_answers])
+                        .map((it, ind) => (
+                          <button
+                            key={ it.type }
+                            data-testid={ item.correct_answer === it
+                              ? 'correct-answer' : `wrong-answer-${ind}` }
+                            type="button"
+                          >
+                            {it}
+                          </button>
+                        ))
+                    }
+                  </div>
+                </div>
+
+              );
+            }
+            return null;
+          })
+        }
       </>
     );
   }
 }
 
-export default Game;
+Game.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default connect()(Game);
