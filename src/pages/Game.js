@@ -8,6 +8,7 @@ class Game extends React.Component {
     questions: [],
     status: 0,
     posi: 0,
+    viewBtnNext: 0,
   };
 
   async componentDidMount() {
@@ -44,7 +45,7 @@ class Game extends React.Component {
   };
 
   render() {
-    const { questions, posi } = this.state;
+    const { questions, posi, viewBtnNext } = this.state;
     return (
       <>
         <HeaderUser />
@@ -66,10 +67,27 @@ class Game extends React.Component {
                             data-testid={ item.correct_answer === it
                               ? 'correct-answer' : `wrong-answer-${ind}` }
                             type="button"
+                            onClick={ () => { this.setState({ viewBtnNext: 1 }); } }
                           >
                             {it}
                           </button>
                         ))
+                    }
+                    {
+                      viewBtnNext === 1 && (
+                        <button
+                          type="button"
+                          data-testid="btn-next"
+                          onClick={ () => {
+                            this.setState({
+                              posi: posi + 1,
+                              viewBtnNext: 0,
+                            });
+                          } }
+                        >
+                          Next
+                        </button>
+                      )
                     }
                   </div>
                 </div>
