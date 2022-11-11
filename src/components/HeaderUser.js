@@ -15,7 +15,7 @@ class HeaderUser extends Component {
           alt={ name }
         />
         <p data-testid="header-player-name">{ name }</p>
-        <p data-testid="header-score">{score}</p>
+        <p data-testid="header-score">{ score }</p>
       </header>
     );
   }
