@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HeaderUser from '../components/HeaderUser';
+import { getScore } from '../redux/actions/action';
 import './cssMesmo.css';
 
 class Game extends React.Component {
@@ -55,10 +56,35 @@ class Game extends React.Component {
     return x;
   };
 
-  handleClick = () => {
+  handleClick = (index, it) => {
     const { viewBtnNext } = this.state;
     if (!viewBtnNext) {
       this.setState({ viewBtnNext: true, corSimCorNao: true });
+    }
+
+    const { dispatch } = this.props;
+    dispatch(getScore(this.sumScore(index, it)));
+  };
+
+  sumScore = (index, it) => {
+    const { questions, timer } = this.state;
+    const { score } = this.props;
+    const { difficulty } = questions[index];
+    const correctAnswer = questions[index].correct_answer;
+    const easy = 1;
+    const medium = 2;
+    const hard = 3;
+    const add = 10;
+
+    if (it !== correctAnswer) {
+      return score;
+    }
+    if (difficulty === 'easy') {
+      return (score + (add + (timer * easy)));
+    } if (difficulty === 'medium') {
+      return (score + (add + (timer * medium)));
+    } if (difficulty === 'hard') {
+      return (score + (add + (timer * hard)));
     }
   };
 
@@ -104,7 +130,7 @@ class Game extends React.Component {
                                 data-testid={ item.correct_answer === it
                                   ? 'correct-answer' : `wrong-answer-${ind}` }
                                 type="button"
-                                onClick={ this.handleClick }
+                                onClick={ () => this.handleClick(index, it) }
                                 disabled={ disabled }
                                 className={ corSimCorNao ? a : '' }
                               >
@@ -148,6 +174,12 @@ Game.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
-export default connect()(Game);
+const mapStateToProps = (state) => ({
+  score: state.player.score,
+});
+
+export default connect(mapStateToProps)(Game);
