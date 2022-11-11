@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import HeaderUser from '../components/HeaderUser';
 import { connect } from 'react-redux';
+import HeaderUser from '../components/HeaderUser';
 
 class Feedback extends Component {
   state = {
@@ -10,13 +10,13 @@ class Feedback extends Component {
 
   componentDidMount() {
     this.feedbackMessage();
-  };
-  
+  }
+
   playAgainButton = () => {
-   const { history } = this.props;
-   history.push('/');
+    const { history } = this.props;
+    history.push('/');
   };
-  
+
   feedbackMessage = () => {
     const { assertions } = this.props;
     const number3 = 3;
@@ -32,7 +32,7 @@ class Feedback extends Component {
   };
 
   render() {
-    const { score, assertions } = this.props;
+    const { score, assertions, history } = this.props;
     const { message } = this.state;
     return (
       <div>
@@ -47,6 +47,13 @@ class Feedback extends Component {
         <p data-testid="feedback-total-score">{ score }</p>
         <p data-testid="feedback-total-question">{ assertions }</p>
         <p data-testid="feedback-text">{ message }</p>
+        <button
+          type="button"
+          data-testid="btn-ranking"
+          onClick={ () => history.push('/ranking') }
+        >
+          Ranking
+        </button>
       </div>
     );
   }
