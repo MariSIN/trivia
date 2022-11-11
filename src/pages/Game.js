@@ -19,7 +19,7 @@ class Game extends React.Component {
   async componentDidMount() {
     const tokenUser = localStorage.getItem('token');
     const gotQuestions = await this.getQuestions(tokenUser);
-    const sortQuestions = gotQuestions.results
+    const sortQuestions = await gotQuestions.results
       .map((item) => this.sortidos([item.correct_answer, ...item.incorrect_answers]));
     this.setState({
       questions: gotQuestions.results,
