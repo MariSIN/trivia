@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HeaderUser from '../components/HeaderUser';
+import './cssMesmo.css';
 
 class Game extends React.Component {
   state = {
@@ -9,6 +10,7 @@ class Game extends React.Component {
     status: 0,
     posi: 0,
     viewBtnNext: 0,
+    corSimCorNao: false,
   };
 
   async componentDidMount() {
@@ -44,10 +46,17 @@ class Game extends React.Component {
     return x;
   };
 
+  handleClick = () => {
+    const { viewBtnNext } = this.state;
+    if (viewBtnNext === 0) {
+      this.setState({ viewBtnNext: 1, corSimCorNao: true });
+    }
+  };
+
   render() {
-    const { questions, posi, viewBtnNext } = this.state;
+    const { questions, posi, viewBtnNext, corSimCorNao } = this.state;
     return (
-      <>
+      <div className="cssMesmo">
         <HeaderUser />
         <h1>Game</h1>
         {
@@ -61,17 +70,21 @@ class Game extends React.Component {
                   <div data-testid="answer-options">
                     {
                       this.sortidos([item.correct_answer, ...item.incorrect_answers])
-                        .map((it, ind) => (
-                          <button
-                            key={ it.type }
-                            data-testid={ item.correct_answer === it
-                              ? 'correct-answer' : `wrong-answer-${ind}` }
-                            type="button"
-                            onClick={ () => { this.setState({ viewBtnNext: 1 }); } }
-                          >
-                            {it}
-                          </button>
-                        ))
+                        .map((it, ind) => {
+                          const a = item.correct_answer === it ? 'green' : 'red';
+                          return (
+                            <button
+                              key={ it.type }
+                              data-testid={ item.correct_answer === it
+                                ? 'correct-answer' : `wrong-answer-${ind}` }
+                              type="button"
+                              onClick={ this.handleClick }
+                              className={ corSimCorNao ? a : '' }
+                            >
+                              {it}
+                            </button>
+                          );
+                        })
                     }
                     {
                       viewBtnNext === 1 && (
@@ -82,6 +95,7 @@ class Game extends React.Component {
                             this.setState({
                               posi: posi + 1,
                               viewBtnNext: 0,
+                              corSimCorNao: false,
                             });
                           } }
                         >
@@ -97,7 +111,7 @@ class Game extends React.Component {
             return null;
           })
         }
-      </>
+      </div>
     );
   }
 }

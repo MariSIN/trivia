@@ -1,0 +1,12 @@
+button{
+  padding: 10;
+  margin: 10;
+  box-sizing: border-content;
+}
+.green {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.red {
+  border: 3px solid red
+}
