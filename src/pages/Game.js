@@ -116,6 +116,7 @@ class Game extends React.Component {
       <div className="cssMesmo">
         <HeaderUser />
         <h1>Game</h1>
+
         {
           questions.map((item, index) => {
             if (posi === index) {
@@ -167,6 +168,7 @@ class Game extends React.Component {
                           </button>
                         )
                       }
+
                     </div>
                   </div>
                 </div>
