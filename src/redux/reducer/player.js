@@ -1,4 +1,4 @@
-import { INFO_USER, GET_SCORE } from '../actions/action';
+import { INFO_USER, GET_SCORE, GET_ASSERTIONS } from '../actions/action';
 
 const INITIAL_STATE = {
   email: '',
@@ -19,6 +19,11 @@ const player = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       score: action.payload,
+    };
+  case GET_ASSERTIONS:
+    return {
+      ...state,
+      assertions: Number(state.assertions + action.payload),
     };
   default:
     return state;
