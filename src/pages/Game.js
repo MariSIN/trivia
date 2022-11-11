@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HeaderUser from '../components/HeaderUser';
-import { getScore } from '../redux/actions/action';
+import { assertionsAction, getScore } from '../redux/actions/action';
 import './cssMesmo.css';
 
 class Game extends React.Component {
@@ -63,6 +63,7 @@ class Game extends React.Component {
 
     const { dispatch } = this.props;
     dispatch(getScore(this.sumScore(index, it)));
+    dispatch(assertionsAction(this.getAssertios(index, it)));
   };
 
   sumScore = (index, it) => {
@@ -85,6 +86,16 @@ class Game extends React.Component {
     } if (difficulty === 'hard') {
       return (score + (add + (timer * hard)));
     }
+  };
+
+  getAssertios = (index, it) => {
+    const { questions } = this.state;
+    const correctAnswer = questions[index].correct_answer;
+
+    if (it === correctAnswer) {
+      return 1;
+    }
+    return 0;
   };
 
   questionsTimer = () => {
