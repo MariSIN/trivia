@@ -21,7 +21,6 @@ class Game extends React.Component {
     const gotQuestions = await this.getQuestions(tokenUser);
     const sortQuestions = gotQuestions.results
       .map((item) => this.sortidos([item.correct_answer, ...item.incorrect_answers]));
-    console.log(sortQuestions);
     this.setState({
       questions: gotQuestions.results,
       randomAnswers: sortQuestions,
@@ -124,6 +123,7 @@ class Game extends React.Component {
                                 posi: posi + 1,
                                 viewBtnNext: false,
                                 corSimCorNao: false,
+                                disabled: false,
                               });
                             } }
                           >
