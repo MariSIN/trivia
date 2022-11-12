@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import HeaderUser from '../components/HeaderUser';
 import { connect } from 'react-redux';
+import HeaderUser from '../components/HeaderUser';
 
 class Feedback extends Component {
   state = {
@@ -10,13 +10,13 @@ class Feedback extends Component {
 
   componentDidMount() {
     this.feedbackMessage();
-  };
-  
+  }
+
   playAgainButton = () => {
-   const { history } = this.props;
-   history.push('/');
+    const { history } = this.props;
+    history.push('/');
   };
-  
+
   feedbackMessage = () => {
     const { assertions } = this.props;
     const number3 = 3;
