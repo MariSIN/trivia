@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { infoUser } from '../redux/actions/action';
+import { clearInfo, infoUser } from '../redux/actions/action';
 
 class Login extends React.Component {
   state = {
@@ -9,6 +9,11 @@ class Login extends React.Component {
     name: '',
     disabled: true,
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(clearInfo());
+  }
 
   handleChange = ({ target }) => {
     this.setState({
@@ -38,7 +43,6 @@ class Login extends React.Component {
       name: '',
       disabled: true,
     });
-
     localStorage.setItem('token', await this.getToken());
 
     history.push('/game');

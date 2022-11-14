@@ -10,6 +10,15 @@ class Feedback extends Component {
 
   componentDidMount() {
     this.feedbackMessage();
+    const { playerEmail, playerName, score } = this.props;
+    const rankPlayer = JSON.parse(localStorage.getItem('playerRank')) || [];
+    const infoPLayer = {
+      name: playerName,
+      email: playerEmail,
+      score,
+    };
+    rankPlayer.push(infoPLayer);
+    localStorage.setItem('playerRank', JSON.stringify(rankPlayer));
   }
 
   playAgainButton = () => {
@@ -62,6 +71,8 @@ class Feedback extends Component {
 const mapStateToProps = (state) => ({
   assertions: state.player.assertions,
   score: state.player.score,
+  playerEmail: state.player.email,
+  playerName: state.player.name,
 });
 
 Feedback.propTypes = {
@@ -70,6 +81,9 @@ Feedback.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  playerEmail: PropTypes.string.isRequired,
+  playerName: PropTypes.string.isRequired,
+
 };
 
 export default connect(mapStateToProps)(Feedback);

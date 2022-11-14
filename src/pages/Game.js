@@ -44,7 +44,7 @@ class Game extends React.Component {
     const { status } = this.state;
     const { history } = this.props;
     if (status === errorNumber) {
-      localStorage.clear();
+      localStorage.removeItem('token');
       history.push('/');
     }
   };
