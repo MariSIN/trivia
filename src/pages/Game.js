@@ -190,13 +190,13 @@ class Game extends React.Component {
   }
 }
 
-Game.propTypes = {
+Game.propTypes = ({
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
+    push: PropTypes.func,
   }).isRequired,
-  dispatch: PropTypes.func.isRequired,
-  score: PropTypes.number.isRequired,
-};
+  dispatch: PropTypes.func,
+  score: PropTypes.number,
+}).isRequired;
 
 const mapStateToProps = (state) => ({
   score: state.player.score,
