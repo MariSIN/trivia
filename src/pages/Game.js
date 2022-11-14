@@ -58,7 +58,11 @@ class Game extends React.Component {
   handleClick = (index, it) => {
     const { viewBtnNext } = this.state;
     if (!viewBtnNext) {
-      this.setState({ viewBtnNext: true, corSimCorNao: true });
+      this.setState({
+        viewBtnNext: true,
+        corSimCorNao: true,
+        disabled: true,
+      });
     }
 
     const { dispatch } = this.props;
