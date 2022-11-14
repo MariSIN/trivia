@@ -18,10 +18,10 @@ class Login extends React.Component {
   handleChange = ({ target }) => {
     this.setState({
       [target.name]: target.value,
-    }, () => this.validaEntrada());
+    }, () => this.validateLogin());
   };
 
-  validaEntrada = () => {
+  validateLogin = () => {
     const { email, name } = this.state;
     const emailRegex = /\S+@\S+\.\S+/;
     const emailValido = emailRegex.test(email);
@@ -110,7 +110,7 @@ class Login extends React.Component {
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
+    push: PropTypes.func,
   }).isRequired,
 };
 
