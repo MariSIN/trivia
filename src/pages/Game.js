@@ -155,7 +155,7 @@ class Game extends React.Component {
                               disabled={ disabled }
                               className={ corSimCorNao ? a : '' }
                             >
-                              {it}
+                              {decode(it)}
                             </button>
                           );
                         })
