@@ -22,7 +22,7 @@ class Game extends React.Component {
     const tokenUser = localStorage.getItem('token');
     const gotQuestions = await this.getQuestions(tokenUser);
     const sortQuestions = await gotQuestions.results
-      ?.map((item) => this.sortidos([item.correct_answer, ...item.incorrect_answers]));
+      ?.map((item) => this.randomly([item.correct_answer, ...item.incorrect_answers]));
     this.setState({
       questions: gotQuestions.results,
       randomAnswers: sortQuestions,
@@ -50,7 +50,7 @@ class Game extends React.Component {
     }
   };
 
-  sortidos = (answers) => {
+  randomly = (answers) => {
     const num = 0.5;
     const x = answers.sort(() => Math.random() - num);
     return x;
@@ -59,12 +59,16 @@ class Game extends React.Component {
   handleClick = (index, it) => {
     const { viewBtnNext } = this.state;
     if (!viewBtnNext) {
-      this.setState({ viewBtnNext: true, corSimCorNao: true });
+      this.setState({
+        viewBtnNext: true,
+        corSimCorNao: true,
+        disabled: true,
+      });
     }
 
     const { dispatch } = this.props;
     dispatch(getScore(this.sumScore(index, it)));
-    dispatch(assertionsAction(this.getAssertios(index, it)));
+    dispatch(assertionsAction(this.getAssertions(index, it)));
   };
 
   sumScore = (index, it) => {
@@ -89,7 +93,7 @@ class Game extends React.Component {
     }
   };
 
-  getAssertios = (index, it) => {
+  getAssertions = (index, it) => {
     const { questions } = this.state;
     const correctAnswer = questions[index].correct_answer;
 
@@ -128,60 +132,56 @@ class Game extends React.Component {
       <div className="cssMesmo">
         <HeaderUser />
         <h1>Game</h1>
-
+        <p>{ timer }</p>
         {
           questions.map((item, index) => {
             if (posi === index) {
               return (
-                <div>
-                  <p>{ timer }</p>
-                  <div key={ item.difficulty }>
-                    <span data-testid="question-category">{decode(item.category)}</span>
-                    <span data-testid="question-text">{decode(item.question)}</span>
-                    <div data-testid="answer-options">
-                      {
-                        randomAnswers[index]
-                          .map((it, ind) => {
-                            const a = item.correct_answer === it ? 'green' : 'red';
-                            return (
-                              <button
-                                key={ it.type }
-                                data-testid={ item.correct_answer === it
-                                  ? 'correct-answer' : `wrong-answer-${ind}` }
-                                type="button"
-                                onClick={ () => this.handleClick(index, it) }
-                                disabled={ disabled }
-                                className={ corSimCorNao ? a : '' }
-                              >
-                                {it}
-                              </button>
-                            );
-                          })
-                      }
-                      {
-                        viewBtnNext && (
-                          <button
-                            type="button"
-                            data-testid="btn-next"
-                            onClick={ () => {
-                              this.setState({
-                                posi: posi + 1,
-                                viewBtnNext: false,
-                                corSimCorNao: false,
-                                disabled: false,
-                                timer: 30,
-                              });
-                              if (posi === n4) {
-                                history.push('/feedback');
-                              }
-                            } }
-                          >
-                            Next
-                          </button>
-                        )
-                      }
-
-                    </div>
+                <div key={ item }>
+                  <span data-testid="question-category">{decode(item.category)}</span>
+                  <span data-testid="question-text">{decode(item.question)}</span>
+                  <div data-testid="answer-options">
+                    {
+                      randomAnswers[index]
+                        .map((it, ind) => {
+                          const a = item.correct_answer === it ? 'green' : 'red';
+                          return (
+                            <button
+                              key={ it }
+                              data-testid={ item.correct_answer === it
+                                ? 'correct-answer' : `wrong-answer-${ind}` }
+                              type="button"
+                              onClick={ () => this.handleClick(index, it) }
+                              disabled={ disabled }
+                              className={ corSimCorNao ? a : '' }
+                            >
+                              {it}
+                            </button>
+                          );
+                        })
+                    }
+                    {
+                      viewBtnNext && (
+                        <button
+                          type="button"
+                          data-testid="btn-next"
+                          onClick={ () => {
+                            this.setState({
+                              posi: posi + 1,
+                              viewBtnNext: false,
+                              corSimCorNao: false,
+                              disabled: false,
+                              timer: 30,
+                            });
+                            if (posi === n4) {
+                              history.push('/feedback');
+                            }
+                          } }
+                        >
+                          Next
+                        </button>
+                      )
+                    }
                   </div>
                 </div>
               );
@@ -194,13 +194,13 @@ class Game extends React.Component {
   }
 }
 
-Game.propTypes = {
+Game.propTypes = ({
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
+    push: PropTypes.func,
   }).isRequired,
-  dispatch: PropTypes.func.isRequired,
-  score: PropTypes.number.isRequired,
-};
+  dispatch: PropTypes.func,
+  score: PropTypes.number,
+}).isRequired;
 
 const mapStateToProps = (state) => ({
   score: state.player.score,
