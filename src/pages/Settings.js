@@ -24,7 +24,7 @@ class Settings extends React.Component {
   };
 
   setDifficulty = () => {
-    const difficultyList = [anyDifficulty, 'easy', 'medium', 'hard'];
+    const difficultyList = [anyDifficulty, 'Easy', 'Medium', 'Hard'];
     this.setState({
       difficulties: difficultyList,
     });
@@ -45,7 +45,7 @@ class Settings extends React.Component {
     if (category !== 'Any Category') {
       urlArray.push(`&category=${category}`);
     } if (difficulty !== anyDifficulty) {
-      urlArray.push((`&difficulty=${difficulty}`));
+      urlArray.push(((`&difficulty=${difficulty}`).toLowerCase()));
     } if (type !== 'True/False' && type !== 'Any Type') {
       urlArray.push('&type=multiple');
     } if (type !== 'Multiple Choice' && type !== 'Any Type') {
