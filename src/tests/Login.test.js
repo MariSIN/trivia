@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouterAndRedux from './helpers/renderWithRouterAndRedux';
 import App from '../App.js';
 
-const testIdEmail = 'input-gravatar-email'
-const testIdName = 'input-player-name'
+const testIdEmail = 'input-gravatar-email';
+const testIdName = 'input-player-name';
 const testIdButton = 'btn-play';
 
 describe('Testa o componente <Login />', () => {
@@ -53,22 +53,22 @@ describe('Testa o componente <Login />', () => {
   });
 
   it('Testa se o botão de configurações redireciona para a página /settings', () => {
-    const {history} = renderWithRouterAndRedux(<App />);
+    const { history } = renderWithRouterAndRedux(<App />);
     const buttonSettings = screen.getByTestId('btn-settings');
 
     userEvent.click(buttonSettings);
-    
+
     const { pathname } = history.location;
     expect(pathname).toBe('/settings');
   });
 
   it('Testa se ao clicar no botão é direcionado para a página do Game', async () => {
-  jest.spyOn(global, 'fetch');
+    jest.spyOn(global, 'fetch');
     global.fetch.mockResolvedValue({
-        json: jest.fn().mockResolvedValue ({token:'123456asdfg'})
-      });
+      json: jest.fn().mockResolvedValue({ token: '123456asdfg' }),
+    });
 
-    const { history } = renderWithRouterAndRedux(<App />);    
+    const { history } = renderWithRouterAndRedux(<App />);
 
     const inputEmail = screen.getByTestId(testIdEmail);
     const inputName = screen.getByTestId(testIdName);

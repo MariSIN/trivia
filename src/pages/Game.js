@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { decode } from 'html-entities';
 import HeaderUser from '../components/HeaderUser';
 import { assertionsAction, getScore } from '../redux/actions/action';
+import '../style/game.css';
 import './cssMesmo.css';
 
 class Game extends React.Component {
@@ -138,8 +139,8 @@ class Game extends React.Component {
             if (posi === index) {
               return (
                 <div key={ item }>
-                  <span data-testid="question-category">{decode(item.category)}</span>
-                  <span data-testid="question-text">{decode(item.question)}</span>
+                  <h2 data-testid="question-category">{decode(item.category)}</h2>
+                  <h3 data-testid="question-text">{decode(item.question)}</h3>
                   <div data-testid="answer-options">
                     {
                       randomAnswers[index]
