@@ -1,0 +1,14 @@
+body {
+  background-color: rgba(205, 166, 205, 0.778);
+}
+
+.cssMesmo {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  color: rgba(246, 246, 246, 0.748);
+}

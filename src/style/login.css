@@ -1,0 +1,77 @@
+.login-content .name, .login-content .email {
+  border: 1px solid rgba(110, 121, 123, 0.568);
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px 0.3px rgba(0, 0, 0, 0.215);
+  color: rgba(67, 64, 67, 0.748);
+  font-size: 16px;
+  font-weight: 600;
+  height: 40px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  width: 250px;
+}
+
+.login-content, .login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: center;
+}
+
+.login .name:focus, .login .email:focus {
+  outline: none;
+}
+
+.btn-play {
+  font-size: 16px;
+  height: 35px;
+  margin-top: 10px;
+  width: 120px;
+}
+
+.btn-play:disabled {
+  background-color: rgb(230, 208, 252);
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 0.1px rgba(43, 3, 40, 0.287);
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: transform 300ms;
+}
+
+.btn-play:enabled {
+  background-color: rgb(200, 87, 183);
+  border: 2px solid rgba(100, 18, 98, 0.287);
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
+  color: rgb(248, 235, 248);
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: transform 300ms;
+}
+
+.btn-play:hover:enabled {
+  color: white;
+  cursor: pointer;
+  filter: drop-shadow(4px 4px 5px rgba(227, 61, 246, 0.772));
+  -webkit-text-stroke: rgba(247, 247, 247, 0.772) 0.5px;
+  transform: translateY(-2.5px);
+  transition: 500ms;
+}
+
+.button-settings {
+  left: 400px;
+  position: relative;
+  top: 40px;
+}
+
+.settings {
+  background-color: transparent;
+  border: none;
+  color: rgb(117, 123, 200);
+  cursor: pointer;
+  font-size: 30px;
+}
+
