@@ -2,6 +2,7 @@ export const INFO_USER = 'INFO_USER';
 export const GET_SCORE = 'GET_SCORE';
 export const GET_ASSERTIONS = 'GET_ASSERTIONS';
 export const CLEAR_INFO = 'CLEAR_INFO';
+export const URL = 'URL';
 
 export const infoUser = (info) => ({
   type: INFO_USER,
@@ -21,4 +22,9 @@ export const assertionsAction = (payload) => ({
 export const clearInfo = (empty) => ({
   type: CLEAR_INFO,
   empty,
+});
+
+export const getURL = (url) => ({
+  type: URL,
+  payload: url,
 });
