@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { decode } from 'html-entities';
 import HeaderUser from '../components/HeaderUser';
 import { assertionsAction, getScore } from '../redux/actions/action';
+import getQuestions from '../helpers/getQuestions';
 import '../style/game.css';
 import './cssMesmo.css';
 
@@ -20,8 +21,13 @@ class Game extends React.Component {
   };
 
   async componentDidMount() {
-    const tokenUser = localStorage.getItem('token');
-    const gotQuestions = await this.getQuestions(tokenUser);
+    await this.randomAnswers();
+    this.intervalCounter();
+  }
+
+  randomAnswers = async () => {
+    const { endpoint } = this.props;
+    const gotQuestions = await getQuestions(endpoint);
     const sortQuestions = await gotQuestions.results
       ?.map((item) => this.randomly([item.correct_answer, ...item.incorrect_answers]));
     this.setState({
@@ -31,14 +37,6 @@ class Game extends React.Component {
     }, () => {
       this.checkTokenError();
     });
-
-    this.intervalCounter();
-  }
-
-  getQuestions = async (token) => {
-    const request = await fetch(`https://opentdb.com/api.php?amount=5&token=${token}`);
-    const response = await request.json();
-    return response;
   };
 
   checkTokenError = () => {
@@ -205,6 +203,7 @@ Game.propTypes = ({
 
 const mapStateToProps = (state) => ({
   score: state.player.score,
+  endpoint: state.url.endpoint,
 });
 
 export default connect(mapStateToProps)(Game);
