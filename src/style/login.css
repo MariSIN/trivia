@@ -25,11 +25,36 @@
   outline: none;
 }
 
+.login-data {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.507);
+  border-radius: 8px;
+  box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  justify-content: center;
+  width: 350px;
+}
+
+.orelhas {
+  display: flex;
+  gap: 100px;
+}
+
+.triangulo1, .triangulo2 {
+  border-bottom: 40px solid rgba(255, 255, 255, 0.507);
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  height: 0;
+  width: 4px;
+}
+
 .btn-play {
   font-size: 16px;
   height: 35px;
   margin-top: 10px;
-  width: 120px;
+  width: 270px;
 }
 
 .btn-play:disabled {

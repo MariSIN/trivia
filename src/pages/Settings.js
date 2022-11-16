@@ -12,6 +12,7 @@ class Settings extends React.Component {
     category: 'Any Category',
     difficulty: anyDifficulty,
     type: 'Any Type',
+    save: '',
   };
 
   async componentDidMount() {
@@ -52,13 +53,28 @@ class Settings extends React.Component {
       urlArray.push('&type=boolean');
     }
 
+    this.saveTimeOut();
+
     dispatch(getURL(urlArray.join('')));
   };
 
+  saveTimeOut = () => {
+    const saveTime = 3000;
+    const disappearMessage = 200;
+
+    setTimeout(() => {
+      this.setState({ save: 'Saved settings' });
+      setTimeout(() => {
+        this.setState({ save: '' });
+      }, saveTime);
+    }, disappearMessage);
+  };
+
   render() {
-    const { difficulties, types, category, difficulty, type } = this.state;
+    const { difficulties, types, category, difficulty, type, save } = this.state;
     return (
       <div>
+        {console.log(save)}
         <div>
           <h1 data-testid="settings-title">Settings</h1>
           <NavLink to="/" exact>Home</NavLink>
@@ -119,6 +135,7 @@ class Settings extends React.Component {
         >
           Save Changes
         </button>
+        <p>{ save }</p>
       </div>
     );
   }
