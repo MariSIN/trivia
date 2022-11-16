@@ -139,7 +139,7 @@ class Game extends React.Component {
                 <div key={ item }>
                   <h2 data-testid="question-category">{decode(item.category)}</h2>
                   <h3 data-testid="question-text">{decode(item.question)}</h3>
-                  <div data-testid="answer-options">
+                  <div data-testid="answer-options" className="answer-options">
                     {
                       randomAnswers[index]
                         .map((it, ind) => {
@@ -152,7 +152,7 @@ class Game extends React.Component {
                               type="button"
                               onClick={ () => this.handleClick(index, it) }
                               disabled={ disabled }
-                              className={ corSimCorNao ? a : '' }
+                              className={ corSimCorNao ? a : 'option' }
                             >
                               {decode(it)}
                             </button>

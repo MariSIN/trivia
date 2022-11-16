@@ -87,16 +87,34 @@
 }
 
 .button-settings {
-  left: 400px;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  left: 380px;
   position: relative;
   top: 40px;
+  width: 50px;
 }
 
 .settings {
+  align-items: center;
   background-color: transparent;
   border: none;
   color: rgb(117, 123, 200);
   cursor: pointer;
+  display: flex;
   font-size: 30px;
+  justify-content: center;
 }
 
+@keyframes rotate {
+
+  0% { transform: rotate(0deg);}
+
+  100% { transform: rotate(360deg);}
+}
+
+.settings:hover {
+  animation: 2s rotate infinite linear;
+}

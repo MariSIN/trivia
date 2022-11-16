@@ -1,14 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: rgba(205, 166, 205, 0.778);
 }
 
 .cssMesmo {
   align-items: center;
+  background-color: rgb(232, 212, 251);
   display: flex;
   flex-direction: column;
+  height: 100vh;
   justify-content: center;
+  width: 100%;
 }
 
 h1 {
   color: rgba(246, 246, 246, 0.748);
+}
+
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.option, .green, .red {
+  border: 1px solid rgba(0, 0, 0, 0.165);
+  border-radius: 7px;
+  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
+  color: rgba(60, 45, 61, 0.772);
+  font-size: 16px;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 1px;
+  transition: transform 300ms;
+}
+
+.green {
+  background-color: rgb(226, 205, 241);
+  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
+  color: rgba(60, 45, 61, 0.772);
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.035);
+  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
+  color: rgba(60, 45, 61, 0.772);
+}
+
+.option:hover:enabled {
+  cursor: pointer;
+  filter: drop-shadow(3px 2px 3px rgba(230, 172, 236, 0.772));
+  transform: translateY(-2.5px);
+  transition: 400ms;
+}
+
+.option:nth-child( odd ) {
+  background-color: rgb(227, 187, 241);
+}
+
+.option:nth-child( even ) {
+  background-color: rgb(226, 205, 241);
 }
