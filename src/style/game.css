@@ -6,11 +6,15 @@
 
 body {
   background-color: rgba(205, 166, 205, 0.778);
+  font-family: Poppins , sans-serif;
 }
 
 .cssMesmo {
   align-items: center;
   background-color: rgb(232, 212, 251);
+  background-image: url('./imgs/flores.gif');
+  background-repeat: repeat;
+  background-size: 500px;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -34,30 +38,23 @@ h1 {
   border-radius: 7px;
   box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
-  height: 40px;
+  height: 50px;
   letter-spacing: 1px;
   transition: transform 300ms;
 }
 
 .green {
-  background-color: rgb(226, 205, 241);
+  background-color: rgb(237, 205, 241);
   box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
 }
 
 .red {
-  background-color: rgba(255, 0, 0, 0.035);
+  background-color: rgb(226, 205, 241);
   box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
-}
-
-.option:hover:enabled {
-  cursor: pointer;
-  filter: drop-shadow(3px 2px 3px rgba(230, 172, 236, 0.772));
-  transform: translateY(-2.5px);
-  transition: 400ms;
 }
 
 .option:nth-child( odd ) {
@@ -66,4 +63,61 @@ h1 {
 
 .option:nth-child( even ) {
   background-color: rgb(226, 205, 241);
+}
+
+.option:disabled {
+  background-color: rgb(230, 208, 252);
+  color: rgba(67, 64, 67, 0.394);
+  cursor: not-allowed;
+}
+
+.option:hover:enabled {
+  cursor: pointer;
+  filter: drop-shadow(3px 2px 3px rgba(179, 126, 185, 0.772));
+  transform: translateY(-2.5px);
+  transition: 400ms;
+}
+
+.question-container {
+  align-items: center;
+  background-color: rgba(242, 237, 244, 0.765);
+  border-radius: 8px;
+  box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.all-container {
+  display: flex;
+  gap: 50px;
+}
+
+.question-category {
+  align-items: center;
+  background-color: rgb(192, 150, 235);
+  border-radius: 8px;
+  bottom: 20px;
+  box-shadow: 2px 3px 3px 0.3px rgba(43, 3, 40, 0.325);
+  color: rgba(29, 3, 29, 0.748);
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  position: relative;
+  width: 400px;
+}
+
+.question-text {
+  align-items: center;
+  color: rgba(51, 38, 51, 0.641);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.timer {
+  background-image: url('./imgs/timer.gif');
+  background-size: 40px;
+  height: 40px;
+  width: 40px;
 }

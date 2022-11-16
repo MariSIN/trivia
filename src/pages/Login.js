@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { RiSettings3Fill } from 'react-icons/ri';
 import { clearInfo, infoUser } from '../redux/actions/action';
 import '../style/login.css';
+import gatinho from '../style/imgs/gatinho.gif';
 
 class Login extends React.Component {
   state = {
@@ -75,6 +76,11 @@ class Login extends React.Component {
           </button>
         </div>
         <div className="login-content">
+          <h1
+            className="title-trivia"
+          >
+            Trivia
+          </h1>
           <div className="orelhas">
             <span className="triangulo1"> </span>
             <span className="triangulo2"> </span>
@@ -115,6 +121,11 @@ class Login extends React.Component {
               Play
             </button>
           </div>
+          <img
+            src={ gatinho }
+            alt="gatinho"
+            className="gatinho"
+          />
         </div>
 
       </div>

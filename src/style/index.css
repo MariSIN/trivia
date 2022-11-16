@@ -1,0 +1,18 @@
+:root {
+
+  --ligth-lilac: rgb(232, 212, 251);
+
+  --font-color-text: rgba(67, 64, 67, 0.748);
+
+  --disabled-button: rgb(230, 208, 252);
+
+  --pink-gray: rgba(67, 64, 67, 0.748);
+
+  --box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
+
+  --filter-box-shadow-hover: drop-shadow(4px 4px 5px rgba(227, 61, 246, 0.772));
+
+  --box-shadow-hover: drop-shadow(3px 2px 3px rgba(179, 126, 185, 0.772));
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap') ;

@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap') ;
+
+.login-content .title-trivia {
+  display: flex;
+  font-family: Emilys Candy , cursive;
+  font-size: 55px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+}
+
+.gatinho {
+  bottom: 75px;
+  display: flex;
+  left: 110px;
+  position: relative;
+  width: 70px;
+}
+
 .login-content .name, .login-content .email {
   border: 1px solid rgba(110, 121, 123, 0.568);
   border-radius: 8px;
@@ -11,6 +29,10 @@
   padding: 5px;
   padding-left: 10px;
   width: 250px;
+}
+
+.name::placeholder, .email::placeholder {
+  color: rgba(145, 124, 145, 0.748);
 }
 
 .login-content, .login {
@@ -32,7 +54,7 @@
   box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
   display: flex;
   flex-direction: column;
-  height: 280px;
+  height: 320px;
   justify-content: center;
   width: 350px;
 }
@@ -54,13 +76,14 @@
   font-size: 16px;
   height: 35px;
   margin-top: 10px;
-  width: 270px;
+  width: 252px;
 }
 
 .btn-play:disabled {
   background-color: rgb(230, 208, 252);
   border-radius: 8px;
   box-shadow: 2px 2px 3px 0.1px rgba(43, 3, 40, 0.287);
+  cursor: not-allowed;
   font-weight: 600;
   letter-spacing: 1px;
   transition: transform 300ms;
