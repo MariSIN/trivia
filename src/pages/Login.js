@@ -75,40 +75,46 @@ class Login extends React.Component {
           </button>
         </div>
         <div className="login-content">
-          <label htmlFor="name">
-            <input
-              value={ name }
-              name="name"
-              id="name"
-              className="name"
-              type="text"
-              data-testid="input-player-name"
-              placeholder="Nome de Usuario"
-              onChange={ this.handleChange }
-            />
-          </label>
+          <div className="orelhas">
+            <span className="triangulo1"> </span>
+            <span className="triangulo2"> </span>
+          </div>
+          <div className="login-data">
+            <label htmlFor="name">
+              <input
+                value={ name }
+                name="name"
+                id="name"
+                className="name"
+                type="text"
+                data-testid="input-player-name"
+                placeholder="Nome de Usuario"
+                onChange={ this.handleChange }
+              />
+            </label>
 
-          <label htmlFor="email">
-            <input
-              value={ email }
-              name="email"
-              id="email"
-              className="email"
-              type="email"
-              data-testid="input-gravatar-email"
-              placeholder="Email de Usuario"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <button
-            type="button"
-            data-testid="btn-play"
-            className="btn-play"
-            disabled={ disabled }
-            onClick={ this.exportInfoGlobal }
-          >
-            Play
-          </button>
+            <label htmlFor="email">
+              <input
+                value={ email }
+                name="email"
+                id="email"
+                className="email"
+                type="email"
+                data-testid="input-gravatar-email"
+                placeholder="Email de Usuario"
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="btn-play"
+              className="btn-play"
+              disabled={ disabled }
+              onClick={ this.exportInfoGlobal }
+            >
+              Play
+            </button>
+          </div>
         </div>
 
       </div>
