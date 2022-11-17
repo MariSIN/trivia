@@ -116,11 +116,11 @@ h1 {
 }
 
 .timer {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 90px;
   background-size: 80px;
+  display: flex;
   height: 60px;
+  justify-content: center;
+  margin-top: 90px;
   width: 60px;
 }
