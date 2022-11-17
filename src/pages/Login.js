@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { RiSettings3Fill } from 'react-icons/ri';
 import { clearInfo, infoUser } from '../redux/actions/action';
 import '../style/login.css';
+import gatinho from '../style/imgs/gatinho.gif';
 
 class Login extends React.Component {
   state = {
@@ -75,9 +76,18 @@ class Login extends React.Component {
           </button>
         </div>
         <div className="login-content">
+          <h1
+            className="title-trivia"
+          >
+            Trivia
+          </h1>
           <div className="orelhas">
-            <span className="triangulo1"> </span>
-            <span className="triangulo2"> </span>
+            <span className="triangulo1">
+              <span className="detalhe1"> </span>
+            </span>
+            <span className="triangulo2">
+              <span className="detalhe2"> </span>
+            </span>
           </div>
           <div className="login-data">
             <label htmlFor="name">
@@ -92,7 +102,6 @@ class Login extends React.Component {
                 onChange={ this.handleChange }
               />
             </label>
-
             <label htmlFor="email">
               <input
                 value={ email }
@@ -114,7 +123,18 @@ class Login extends React.Component {
             >
               Play
             </button>
+            <span className="diagonal1"> </span>
+            <span className="diagonal2"> </span>
+            <span className="diagonal3"> </span>
+            <span className="diagonal4"> </span>
+            <span className="diagonal5"> </span>
+            <span className="diagonal6"> </span>
           </div>
+          <img
+            src={ gatinho }
+            alt="gatinho"
+            className="gatinho"
+          />
         </div>
 
       </div>

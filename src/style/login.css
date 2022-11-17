@@ -1,7 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap') ;
+
+.login-content .title-trivia {
+  display: flex;
+  font-family: Emilys Candy , cursive;
+  font-size: 55px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+}
+
+.gatinho {
+  bottom: 75px;
+  display: flex;
+  left: 110px;
+  position: relative;
+  width: 70px;
+}
+
+.login {
+  height: 100vh;
+  width: 100%;
+}
+
 .login-content .name, .login-content .email {
   border: 1px solid rgba(110, 121, 123, 0.568);
   border-radius: 8px;
-  box-shadow: 2px 2px 5px 0.3px rgba(0, 0, 0, 0.215);
+  box-shadow: 2px 2px 1px 0.1px rgba(0, 0, 0, 0.215);
   color: rgba(67, 64, 67, 0.748);
   font-size: 16px;
   font-weight: 600;
@@ -13,12 +36,17 @@
   width: 250px;
 }
 
+.name::placeholder, .email::placeholder {
+  color: rgba(145, 124, 145, 0.748);
+}
+
 .login-content, .login {
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 800px;
   justify-content: center;
+  position: relative;
 }
 
 .login .name:focus, .login .email:focus {
@@ -27,12 +55,12 @@
 
 .login-data {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.507);
+  background-color: rgba(255, 255, 255, 0.661);
   border-radius: 8px;
-  box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
+  box-shadow: 2px 3px 3px 0.2px rgba(43, 3, 40, 0.287);
   display: flex;
   flex-direction: column;
-  height: 280px;
+  height: 320px;
   justify-content: center;
   width: 350px;
 }
@@ -43,24 +71,34 @@
 }
 
 .triangulo1, .triangulo2 {
-  border-bottom: 40px solid rgba(255, 255, 255, 0.507);
+  border-bottom: 40px solid rgba(255, 255, 255, 0.661);
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   height: 0;
   width: 4px;
 }
 
+.detalhe1, .detalhe2 {
+  border-bottom: 30px solid rgb(219, 185, 215);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  bottom: 5px;
+  position: relative;
+  right: 20px;
+}
+
 .btn-play {
   font-size: 16px;
   height: 35px;
   margin-top: 10px;
-  width: 270px;
+  width: 252px;
 }
 
 .btn-play:disabled {
-  background-color: rgb(230, 208, 252);
+  background-color: rgb(244, 219, 249);
   border-radius: 8px;
-  box-shadow: 2px 2px 3px 0.1px rgba(43, 3, 40, 0.287);
+  box-shadow: 1px 1px 2px 0.1px rgba(43, 3, 40, 0.287);
+  cursor: not-allowed;
   font-weight: 600;
   letter-spacing: 1px;
   transition: transform 300ms;
@@ -87,16 +125,88 @@
 }
 
 .button-settings {
-  left: 400px;
-  position: relative;
-  top: 40px;
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: 60px;
+  width: 50px;
 }
 
 .settings {
+  align-items: center;
   background-color: transparent;
   border: none;
-  color: rgb(117, 123, 200);
+  color: rgba(189, 87, 200, 0.724);
   cursor: pointer;
-  font-size: 30px;
+  display: flex;
+  font-size: 40px;
+  justify-content: center;
+}
+
+@keyframes rotate {
+
+  0% { transform: rotate(0deg);}
+
+  100% { transform: rotate(360deg);}
+}
+
+.settings:hover {
+  animation: 2s rotate infinite linear;
+}
+
+.diagonal1, .diagonal2, .diagonal3, .diagonal4, .diagonal5, .diagonal6 {
+  background: rgb(236, 236, 243);
+  height: 50px;
+  position: absolute;
+  transform: skew(65deg);
+  width: 3px;
+}
+
+.diagonal1, .diagonal2, .diagonal3 {
+  left: 400px;
+}
+
+.diagonal1 {
+  height: 20px;
+  transform: skew(80deg);
+  width: 8px;
+}
+
+.diagonal2 {
+  bottom: 300px;
+  height: 20px;
+  transform: skew(-80deg);
+  width: 8px;
+}
+
+.diagonal3 {
+  bottom: 310px;
+  height: 55px;
+  transform: skew(-63deg);
+}
+
+.diagonal4, .diagonal5, .diagonal6 {
+  right: 400px;
+}
+
+.diagonal4 {
+  height: 20px;
+  transform: skew(-80deg);
+  width: 8px;
+}
+
+.diagonal5 {
+  bottom: 300px;
+  height: 20px;
+  transform: skew(80deg);
+  width: 8px;
+}
+
+.diagonal6 {
+  bottom: 310px;
+  height: 55px;
+  transform: skew(63deg);
 }
 
