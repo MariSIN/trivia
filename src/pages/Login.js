@@ -82,8 +82,12 @@ class Login extends React.Component {
             Trivia
           </h1>
           <div className="orelhas">
-            <span className="triangulo1"> </span>
-            <span className="triangulo2"> </span>
+            <span className="triangulo1">
+              <span className="detalhe1"> </span>
+            </span>
+            <span className="triangulo2">
+              <span className="detalhe2"> </span>
+            </span>
           </div>
           <div className="login-data">
             <label htmlFor="name">

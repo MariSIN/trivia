@@ -16,10 +16,15 @@
   width: 70px;
 }
 
+.login {
+  height: 100vh;
+  width: 100%;
+}
+
 .login-content .name, .login-content .email {
   border: 1px solid rgba(110, 121, 123, 0.568);
   border-radius: 8px;
-  box-shadow: 2px 2px 5px 0.3px rgba(0, 0, 0, 0.215);
+  box-shadow: 2px 2px 1px 0.1px rgba(0, 0, 0, 0.215);
   color: rgba(67, 64, 67, 0.748);
   font-size: 16px;
   font-weight: 600;
@@ -49,9 +54,9 @@
 
 .login-data {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.507);
+  background-color: rgba(255, 255, 255, 0.661);
   border-radius: 8px;
-  box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
+  box-shadow: 2px 3px 3px 0.2px rgba(43, 3, 40, 0.287);
   display: flex;
   flex-direction: column;
   height: 320px;
@@ -65,11 +70,20 @@
 }
 
 .triangulo1, .triangulo2 {
-  border-bottom: 40px solid rgba(255, 255, 255, 0.507);
+  border-bottom: 40px solid rgba(255, 255, 255, 0.661);
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   height: 0;
   width: 4px;
+}
+
+.detalhe1, .detalhe2 {
+  border-bottom: 30px solid rgb(219, 185, 215);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  bottom: 5px;
+  position: relative;
+  right: 20px;
 }
 
 .btn-play {
@@ -80,9 +94,9 @@
 }
 
 .btn-play:disabled {
-  background-color: rgb(230, 208, 252);
+  background-color: rgb(244, 219, 249);
   border-radius: 8px;
-  box-shadow: 2px 2px 3px 0.1px rgba(43, 3, 40, 0.287);
+  box-shadow: 1px 1px 2px 0.1px rgba(43, 3, 40, 0.287);
   cursor: not-allowed;
   font-weight: 600;
   letter-spacing: 1px;
@@ -111,12 +125,11 @@
 
 .button-settings {
   align-items: center;
+  align-self: flex-end;
   display: flex;
   height: 50px;
   justify-content: center;
-  left: 380px;
-  position: relative;
-  top: 40px;
+  margin: 60px;
   width: 50px;
 }
 
@@ -124,10 +137,10 @@
   align-items: center;
   background-color: transparent;
   border: none;
-  color: rgb(117, 123, 200);
+  color: rgba(189, 87, 200, 0.724);
   cursor: pointer;
   display: flex;
-  font-size: 30px;
+  font-size: 40px;
   justify-content: center;
 }
 
