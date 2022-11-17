@@ -5,6 +5,7 @@ import Game from './pages/Game';
 import Settings from './pages/Settings';
 import Feedback from './pages/Feedback';
 import Ranking from './pages/Ranking';
+import PageNotFound from './pages/PageNotFound';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/settings" component={ Settings } />
       <Route path="/feedback" component={ Feedback } />
       <Route exact path="/ranking" component={ Ranking } />
+      <Route path="*" component={ PageNotFound } />
     </Switch>
   );
 }
