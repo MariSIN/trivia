@@ -5,9 +5,9 @@ import { decode } from 'html-entities';
 import HeaderUser from '../components/HeaderUser';
 import { assertionsAction, getScore } from '../redux/actions/action';
 import getQuestions from '../helpers/getQuestions';
-import hourglass from '../style/imgs/timer.gif';
 import '../style/game.css';
 import './cssMesmo.css';
+import Timer from '../components/Timer';
 
 class Game extends React.Component {
   state = {
@@ -151,16 +151,7 @@ class Game extends React.Component {
                       >
                         {decode(item.question)}
                       </h3>
-                      <span className="timer-container">
-                        <p className="timer">
-                          { timer === 0 ? 0
-                            : (
-                              <span>
-                                {timer}
-                                <img src={ hourglass } alt="time" />
-                              </span>) }
-                        </p>
-                      </span>
+                      <Timer timer={ timer } />
                     </div>
                     <div data-testid="answer-options" className="answer-options">
                       {
