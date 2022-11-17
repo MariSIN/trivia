@@ -102,7 +102,6 @@ class Login extends React.Component {
                 onChange={ this.handleChange }
               />
             </label>
-
             <label htmlFor="email">
               <input
                 value={ email }
@@ -124,6 +123,12 @@ class Login extends React.Component {
             >
               Play
             </button>
+            <span className="diagonal1"> </span>
+            <span className="diagonal2"> </span>
+            <span className="diagonal3"> </span>
+            <span className="diagonal4"> </span>
+            <span className="diagonal5"> </span>
+            <span className="diagonal6"> </span>
           </div>
           <img
             src={ gatinho }

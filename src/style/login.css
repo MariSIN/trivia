@@ -46,6 +46,7 @@
   flex-direction: column;
   height: 800px;
   justify-content: center;
+  position: relative;
 }
 
 .login .name:focus, .login .email:focus {
@@ -154,3 +155,58 @@
 .settings:hover {
   animation: 2s rotate infinite linear;
 }
+
+.diagonal1, .diagonal2, .diagonal3, .diagonal4, .diagonal5, .diagonal6 {
+  background: rgb(236, 236, 243);
+  height: 50px;
+  position: absolute;
+  transform: skew(65deg);
+  width: 3px;
+}
+
+.diagonal1, .diagonal2, .diagonal3 {
+  left: 400px;
+}
+
+.diagonal1 {
+  height: 20px;
+  transform: skew(80deg);
+  width: 8px;
+}
+
+.diagonal2 {
+  bottom: 300px;
+  height: 20px;
+  transform: skew(-80deg);
+  width: 8px;
+}
+
+.diagonal3 {
+  bottom: 310px;
+  height: 55px;
+  transform: skew(-63deg);
+}
+
+.diagonal4, .diagonal5, .diagonal6 {
+  right: 400px;
+}
+
+.diagonal4 {
+  height: 20px;
+  transform: skew(-80deg);
+  width: 8px;
+}
+
+.diagonal5 {
+  bottom: 300px;
+  height: 20px;
+  transform: skew(80deg);
+  width: 8px;
+}
+
+.diagonal6 {
+  bottom: 310px;
+  height: 55px;
+  transform: skew(63deg);
+}
+
