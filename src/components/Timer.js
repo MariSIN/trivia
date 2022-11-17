@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import hourglass from '../style/imgs/timer.gif';
-
+// vai caramba
 class Timer extends React.Component {
   render() {
     const { timer } = this.props;
