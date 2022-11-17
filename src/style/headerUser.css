@@ -1,0 +1,8 @@
+.header-user {
+  align-items: center;
+  background-color: rgba(235, 229, 241, 0.935);
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
