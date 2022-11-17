@@ -5,9 +5,9 @@ import { decode } from 'html-entities';
 import HeaderUser from '../components/HeaderUser';
 import { assertionsAction, getScore } from '../redux/actions/action';
 import getQuestions from '../helpers/getQuestions';
-import hourglass from '../style/imgs/timer.gif';
 import '../style/game.css';
 import './cssMesmo.css';
+import Timer from '../components/Timer';
 
 class Game extends React.Component {
   state = {
@@ -131,82 +131,70 @@ class Game extends React.Component {
     return (
       <>
         <HeaderUser />
-        <div className="cssMesmo">
-          <h1>Game</h1>
-          {
-            questions.map((item, index) => {
-              if (posi === index) {
-                return (
-                  <div key={ item }>
-                    <div className="all-container">
-                      <div className="question-container">
-                        <h2
-                          data-testid="question-category"
-                          className="question-category"
-                        >
-                          {decode(item.category)}
-                        </h2>
-                        <h3
-                          data-testid="question-text"
-                          className="question-text"
-                        >
-                          {decode(item.question)}
-                        </h3>
-                        <span className="timer-container">
-                          <p className="timer">
-                            { timer === 0 ? 0
-                              : (
-                                <span>
-                                  {timer}
-                                  <img src={ hourglass } alt="time" />
-                                </span>) }
-                          </p>
-                        </span>
-                      </div>
-                      <div data-testid="answer-options" className="answer-options">
-                        {
-                          randomAnswers[index]
-                            .map((it, ind) => {
-                              const a = item.correct_answer === it ? 'green' : 'red';
-                              return (
-                                <button
-                                  key={ it }
-                                  data-testid={ item.correct_answer === it
-                                    ? 'correct-answer' : `wrong-answer-${ind}` }
-                                  type="button"
-                                  onClick={ () => this.handleClick(index, it) }
-                                  disabled={ disabled }
-                                  className={ corSimCorNao ? a : 'option' }
-                                >
-                                  {decode(it)}
-                                </button>
-                              );
-                            })
-                        }
-                        {
-                          viewBtnNext && (
-                            <button
-                              type="button"
-                              data-testid="btn-next"
-                              className="btn-next"
-                              onClick={ () => {
-                                this.setState({
-                                  posi: posi + 1,
-                                  viewBtnNext: false,
-                                  corSimCorNao: false,
-                                  disabled: false,
-                                  timer: 30,
-                                });
-                                if (posi === n4) {
-                                  history.push('/feedback');
-                                }
-                              } }
-                            >
-                              Next
-                            </button>
-                          )
-                        }
-                      </div>
+        <h1>Game</h1>
+        {
+          questions.map((item, index) => {
+            if (posi === index) {
+              return (
+                <div key={ item }>
+                  <div className="all-container">
+                    <div className="question-container">
+                      <h2
+                        data-testid="question-category"
+                        className="question-category"
+                      >
+                        {decode(item.category)}
+                      </h2>
+                      <h3
+                        data-testid="question-text"
+                        className="question-text"
+                      >
+                        {decode(item.question)}
+                      </h3>
+                      <Timer timer={ timer } />
+                    </div>
+                    <div data-testid="answer-options" className="answer-options">
+                      {
+                        randomAnswers[index]
+                          .map((it, ind) => {
+                            const a = item.correct_answer === it ? 'green' : 'red';
+                            return (
+                              <button
+                                key={ it }
+                                data-testid={ item.correct_answer === it
+                                  ? 'correct-answer' : `wrong-answer-${ind}` }
+                                type="button"
+                                onClick={ () => this.handleClick(index, it) }
+                                disabled={ disabled }
+                                className={ corSimCorNao ? a : 'option' }
+                              >
+                                {decode(it)}
+                              </button>
+                            );
+                          })
+                      }
+                      {
+                        viewBtnNext && (
+                          <button
+                            type="button"
+                            data-testid="btn-next"
+                            onClick={ () => {
+                              this.setState({
+                                posi: posi + 1,
+                                viewBtnNext: false,
+                                corSimCorNao: false,
+                                disabled: false,
+                                timer: 30,
+                              });
+                              if (posi === n4) {
+                                history.push('/feedback');
+                              }
+                            } }
+                          >
+                            Next
+                          </button>
+                        )
+                      }
                     </div>
                   </div>
                 );
