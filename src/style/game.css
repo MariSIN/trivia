@@ -36,7 +36,7 @@ h1 {
 .option, .green, .red {
   border: 1px solid rgba(0, 0, 0, 0.165);
   border-radius: 7px;
-  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
+  box-shadow: 2px 2px 2px 0.2px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
   font-size: 18px;
   font-weight: 600;
@@ -47,13 +47,11 @@ h1 {
 
 .green {
   background-color: rgb(237, 205, 241);
-  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
 }
 
 .red {
   background-color: rgb(226, 205, 241);
-  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
 }
 
@@ -67,7 +65,7 @@ h1 {
 
 .option:disabled {
   background-color: rgb(230, 208, 252);
-  color: rgba(67, 64, 67, 0.394);
+  color: rgba(125, 121, 125, 0.394);
   cursor: not-allowed;
 }
 
@@ -82,7 +80,7 @@ h1 {
   align-items: center;
   background-color: rgba(242, 237, 244, 0.765);
   border-radius: 8px;
-  box-shadow: 2px 3px 3px 0.4px rgba(43, 3, 40, 0.287);
+  box-shadow: 2px 3px 3px 0.2px rgba(43, 3, 40, 0.287);
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -98,7 +96,7 @@ h1 {
   background-color: rgb(192, 150, 235);
   border-radius: 8px;
   bottom: 20px;
-  box-shadow: 2px 3px 3px 0.3px rgba(43, 3, 40, 0.325);
+  box-shadow: 2px 3px 2px 0.1px rgba(43, 3, 40, 0.325);
   color: rgba(29, 3, 29, 0.748);
   display: flex;
   height: 50px;
@@ -112,6 +110,8 @@ h1 {
   color: rgba(51, 38, 51, 0.641);
   display: flex;
   justify-content: center;
+  margin-left: 38px;
+  margin-right: 38px;
   text-align: center;
 }
 
@@ -123,4 +123,25 @@ h1 {
   justify-content: center;
   margin-top: 90px;
   width: 60px;
+}
+
+.btn-next {
+  background-color: rgb(170, 114, 225);
+  border: 1px solid rgba(0, 0, 0, 0.165);
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px 0.3px rgba(0, 0, 0, 0.132);
+  color: rgba(255, 255, 255, 0.772);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  height: 35px;
+  letter-spacing: 1px;
+  transition: transform 300ms;
+}
+
+.btn-next:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 2px rgba(179, 126, 185, 0.772));
+  transform: translateY(-2.5px);
+  transition: 400ms;
 }

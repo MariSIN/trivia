@@ -129,7 +129,7 @@ class Game extends React.Component {
     const n4 = 4;
     const { history } = this.props;
     return (
-      <div className="cssMesmo">
+      <>
         <HeaderUser />
         <h1>Game</h1>
         {
@@ -197,13 +197,13 @@ class Game extends React.Component {
                       }
                     </div>
                   </div>
-                </div>
-              );
-            }
-            return null;
-          })
-        }
-      </div>
+                );
+              }
+              return null;
+            })
+          }
+        </div>
+      </>
     );
   }
 }
