@@ -99,13 +99,16 @@ h1 {
   border-radius: 8px;
   bottom: 20px;
   box-shadow: 2px 3px 2px 0.1px rgba(43, 3, 40, 0.325);
-  color: rgba(29, 3, 29, 0.748);
+  color: rgba(62, 13, 62, 0.748);
   display: flex;
+  font-size: 24px;
   height: 50px;
   justify-content: center;
+  letter-spacing: 1px;
   margin-bottom: 25px;
   padding: 35px;
   position: relative;
+  text-align: center;
   width: 400px;
 }
 
