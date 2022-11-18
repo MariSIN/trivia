@@ -175,7 +175,7 @@ h1 {
 
 .game-trivia {
   align-items: center;
-  animation: pulse 4s linear 4s infinite;
+  animation: pulse 4s linear 0s infinite;
   background-color: rgb(192, 150, 235);
   bottom: 340px;
   filter: drop-shadow(2px 3px 3px rgba(160, 111, 167, 0.772));
