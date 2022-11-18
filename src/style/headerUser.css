@@ -1,6 +1,7 @@
 .header-user {
   align-items: center;
   background-color: rgb(144, 78, 211);
+  box-shadow: 0 2px 4px rgba(42, 4, 42, 0.555);
   display: flex;
   gap: 20px;
   height: 100px;
