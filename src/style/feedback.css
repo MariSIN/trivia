@@ -1,0 +1,75 @@
+.feedback-container {
+  align-items: center;
+  background-color: rgb(230, 208, 252);
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.feedback {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 50vh;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 120px;
+  position: relative;
+  width: 400px;
+}
+
+.gravatar-feedback {
+  position: absolute;
+  top: -65px;
+  width: 180px;
+}
+
+.btn-play-again, .btn-ranking {
+  background-color: rgb(170, 114, 225);
+  border: none;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.772);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: transform 300ms;
+  width: 165px;
+}
+
+.btn-play-again:hover, .btn-ranking:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 2px rgba(179, 126, 185, 0.772));
+  transform: translateY(-2.5px);
+  transition: 400ms;
+}
+
+.messages {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.698);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 300px;
+  justify-content: center;
+  text-align: center;
+  width: 350px;
+}
+
+.your-score, .your-assertions, .feedback-text {
+  color: rgba(96, 64, 128, 0.81);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.feedback-text {
+  color: rgb(171, 4, 255);
+  font-size: 25px;
+  text-transform: uppercase;
+}
+

@@ -1,6 +1,6 @@
 .header-user {
   align-items: center;
-  background-color: rgba(235, 229, 241, 0.935);
+  background-color: rgb(144, 78, 211);
   display: flex;
   gap: 20px;
   height: 100px;
@@ -12,6 +12,11 @@
   border-radius: 100%;
   margin-right: -5px;
   width: 40px;
+}
+
+.score {
+  align-items: center;
+  display: flex;
 }
 
 .total-score {
@@ -26,12 +31,21 @@
 }
 
 .title-score, .player {
-  color: rgb(106, 70, 141);
+  align-items: center;
+  color: rgb(232, 212, 251);
+  display: flex;
   font-size: 18px;
   font-weight: 600;
+  margin-right: 5px;
+}
+
+.star {
+  color: rgba(246, 233, 248, 0.899);
+  font-size: 25px;
   margin-right: 5px;
 }
 
 .player {
   margin-right: 50px;
 }
+

@@ -140,8 +140,10 @@ class Game extends React.Component {
       <>
         <HeaderUser />
         <div className="cssMesmo">
-          <h1 className="game-trivia">Trivia</h1>
-          <span className="baloon-bottom"> </span>
+          <div className="title-container">
+            <span className="game-trivia"> </span>
+            <h1 className="title-trivia-game">Trivia</h1>
+          </div>
           {
             questions.map((item, index) => {
               if (posi === index) {

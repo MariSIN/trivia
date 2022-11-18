@@ -37,7 +37,7 @@ h1 {
 .option, .green, .red {
   border: 1px solid rgba(0, 0, 0, 0.165);
   border-radius: 7px;
-  box-shadow: 2px 2px 2px 0.2px rgba(0, 0, 0, 0.132);
+  box-shadow: 2px 2px 2px 0.4px rgba(0, 0, 0, 0.132);
   color: rgba(60, 45, 61, 0.772);
   font-size: 18px;
   font-weight: 600;
@@ -120,6 +120,7 @@ h1 {
 }
 
 .timer-container {
+  padding-bottom: 15px;
   position: relative;
 }
 
@@ -133,7 +134,10 @@ h1 {
 }
 
 .hourglass {
-  width: 40px;
+  bottom: 5px;
+  left: 5px;
+  position: absolute;
+  width: 130px;
 }
 
 .timer-count {
@@ -145,7 +149,7 @@ h1 {
 }
 
 .alarm-time {
-  width: 90px;
+  width: 80px;
 }
 
 .btn-next {
@@ -171,25 +175,46 @@ h1 {
 
 .game-trivia {
   align-items: center;
-  background-color: rgb(232, 212, 251);
-  border: 5px solid rgb(192, 150, 235);
-  border-radius: 100%;
-  color: rgb(192, 150, 235);
-  display: flex;
-  height: 280px;
-  justify-content: center;
-  left: 580px;
-  position: absolute;
-  top: -70px;
-  width: 280px;
+  background-color: rgb(192, 150, 235);
+  bottom: 340px;
+  filter: drop-shadow(2px 3px 3px rgba(160, 111, 167, 0.772));
+  height: 150px;
+  margin: 70px;
+  margin-bottom: -280px;
+  position: relative;
+  right: 215px;
+  transform: rotate(-45deg);
+  width: 150px;
 }
 
-.baloon-bottom {
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-top: 40px solid rgb(192, 150, 235);
-  height: 0;
-  left: 690px;
+.game-trivia:before, .game-trivia:after {
+  background-color: rgb(192, 150, 235);
+  border-radius: 50%;
+  content: '';
+  height: 150px;
   position: absolute;
-  top: 205px;
+  width: 150px;
+}
+
+.game-trivia:before {
+  top: -80px;
+}
+
+.game-trivia:after {
+  left: 80px;
+}
+
+.title-container {
+  position: relative;
+}
+
+.title-trivia-game {
+  font-family: Emilys Candy , cursive;
+  font-size: 55px;
+  left: -150px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  position: absolute;
+  top: -260px;
+  z-index: 50;
 }

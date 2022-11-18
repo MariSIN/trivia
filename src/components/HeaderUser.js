@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../style/headerUser.css';
 import md5 from 'crypto-js/md5';
+import { HiStar } from 'react-icons/hi';
 
 class HeaderUser extends Component {
   render() {
@@ -17,10 +18,13 @@ class HeaderUser extends Component {
           className="img-gravatar"
         />
         <p data-testid="header-player-name" className="player">{ name }</p>
-        <p>
-          <span className="title-score">Pontuação:</span>
+        <span className="score">
+          <p className="title-score">
+            <HiStar className="star" />
+            Score:
+          </p>
           <span data-testid="header-score" className="total-score">{ score }</span>
-        </p>
+        </span>
       </header>
     );
   }
