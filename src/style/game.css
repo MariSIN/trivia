@@ -175,7 +175,7 @@ h1 {
 
 .game-trivia {
   align-items: center;
-  animation: pulse 4s linear 0s infinite;
+  animation: pulse 3s linear 0s infinite;
   background-color: rgb(192, 150, 235);
   bottom: 340px;
   filter: drop-shadow(2px 3px 3px rgba(160, 111, 167, 0.772));
@@ -234,6 +234,7 @@ h1 {
 }
 
 .title-trivia-game {
+  animation: pulse 3s linear 0s infinite;
   font-family: Emilys Candy , cursive;
   font-size: 55px;
   left: -150px;
@@ -241,5 +242,4 @@ h1 {
   margin-bottom: 40px;
   position: absolute;
   top: -260px;
-  z-index: 50;
 }
