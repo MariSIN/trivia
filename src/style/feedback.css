@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 50vh;
+  height: 70vh;
   justify-content: center;
   margin: 0 auto;
   margin-top: 120px;
@@ -21,8 +21,8 @@
 
 .gravatar-feedback {
   position: absolute;
-  top: -65px;
-  width: 180px;
+  top: 15px;
+  width: 190px;
 }
 
 .btn-play-again, .btn-ranking {
