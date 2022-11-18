@@ -17,8 +17,9 @@ body {
   background-size: 500px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
+  position: relative;
   width: 100%;
 }
 
@@ -89,6 +90,7 @@ h1 {
 .all-container {
   display: flex;
   gap: 50px;
+  justify-content: center;
 }
 
 .question-category {
@@ -101,6 +103,8 @@ h1 {
   display: flex;
   height: 50px;
   justify-content: center;
+  margin-bottom: 25px;
+  padding: 35px;
   position: relative;
   width: 400px;
 }
@@ -115,14 +119,33 @@ h1 {
   text-align: center;
 }
 
+.timer-container {
+  position: relative;
+}
+
 .timer {
   align-items: center;
-  background-size: 80px;
   display: flex;
   height: 60px;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: 80%;
   width: 60px;
+}
+
+.hourglass {
+  width: 40px;
+}
+
+.timer-count {
+  color: rgb(160, 47, 201);
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  right: 60px;
+}
+
+.alarm-time {
+  width: 90px;
 }
 
 .btn-next {
@@ -144,4 +167,29 @@ h1 {
   filter: drop-shadow(2px 2px 2px rgba(179, 126, 185, 0.772));
   transform: translateY(-2.5px);
   transition: 400ms;
+}
+
+.game-trivia {
+  align-items: center;
+  background-color: rgb(232, 212, 251);
+  border: 5px solid rgb(192, 150, 235);
+  border-radius: 100%;
+  color: rgb(192, 150, 235);
+  display: flex;
+  height: 280px;
+  justify-content: center;
+  left: 580px;
+  position: absolute;
+  top: -70px;
+  width: 280px;
+}
+
+.baloon-bottom {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 40px solid rgb(192, 150, 235);
+  height: 0;
+  left: 690px;
+  position: absolute;
+  top: 205px;
 }

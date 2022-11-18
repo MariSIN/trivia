@@ -95,6 +95,7 @@ class Game extends React.Component {
 
   getAssertions = (index, it) => {
     const { questions } = this.state;
+    this.resetTimer(index);
     const correctAnswer = questions[index].correct_answer;
 
     if (it === correctAnswer) {
@@ -118,6 +119,13 @@ class Game extends React.Component {
     }
   };
 
+  resetTimer = (index) => {
+    const { questions } = this.state;
+    if (questions[index].correct_answer || questions[index].incorrect_answer) {
+      return (this.setState({ timer: 0 }));
+    }
+  };
+
   intervalCounter = () => {
     const oneSecond = 1000;
     setInterval(this.questionsTimer, oneSecond);
@@ -131,70 +139,74 @@ class Game extends React.Component {
     return (
       <>
         <HeaderUser />
-        <h1>Game</h1>
-        {
-          questions.map((item, index) => {
-            if (posi === index) {
-              return (
-                <div key={ item }>
-                  <div className="all-container">
-                    <div className="question-container">
-                      <h2
-                        data-testid="question-category"
-                        className="question-category"
-                      >
-                        {decode(item.category)}
-                      </h2>
-                      <h3
-                        data-testid="question-text"
-                        className="question-text"
-                      >
-                        {decode(item.question)}
-                      </h3>
-                      <Timer timer={ timer } />
-                    </div>
-                    <div data-testid="answer-options" className="answer-options">
-                      {
-                        randomAnswers[index]
-                          .map((it, ind) => {
-                            const a = item.correct_answer === it ? 'green' : 'red';
-                            return (
-                              <button
-                                key={ it }
-                                data-testid={ item.correct_answer === it
-                                  ? 'correct-answer' : `wrong-answer-${ind}` }
-                                type="button"
-                                onClick={ () => this.handleClick(index, it) }
-                                disabled={ disabled }
-                                className={ corSimCorNao ? a : 'option' }
-                              >
-                                {decode(it)}
-                              </button>
-                            );
-                          })
-                      }
-                      {
-                        viewBtnNext && (
-                          <button
-                            type="button"
-                            data-testid="btn-next"
-                            onClick={ () => {
-                              this.setState({
-                                posi: posi + 1,
-                                viewBtnNext: false,
-                                corSimCorNao: false,
-                                disabled: false,
-                                timer: 30,
-                              });
-                              if (posi === n4) {
-                                history.push('/feedback');
-                              }
-                            } }
-                          >
-                            Next
-                          </button>
-                        )
-                      }
+        <div className="cssMesmo">
+          <h1 className="game-trivia">Trivia</h1>
+          <span className="baloon-bottom"> </span>
+          {
+            questions.map((item, index) => {
+              if (posi === index) {
+                return (
+                  <div key={ item }>
+                    <div className="all-container">
+                      <div className="question-container">
+                        <h2
+                          data-testid="question-category"
+                          className="question-category"
+                        >
+                          {decode(item.category)}
+                        </h2>
+                        <h3
+                          data-testid="question-text"
+                          className="question-text"
+                        >
+                          {decode(item.question)}
+                        </h3>
+                        <Timer timer={ timer } />
+                      </div>
+                      <div data-testid="answer-options" className="answer-options">
+                        {
+                          randomAnswers[index]
+                            .map((it, ind) => {
+                              const a = item.correct_answer === it ? 'green' : 'red';
+                              return (
+                                <button
+                                  key={ it }
+                                  data-testid={ item.correct_answer === it
+                                    ? 'correct-answer' : `wrong-answer-${ind}` }
+                                  type="button"
+                                  onClick={ () => this.handleClick(index, it) }
+                                  disabled={ disabled }
+                                  className={ corSimCorNao ? a : 'option' }
+                                >
+                                  {decode(it)}
+                                </button>
+                              );
+                            })
+                        }
+                        {
+                          viewBtnNext && (
+                            <button
+                              type="button"
+                              data-testid="btn-next"
+                              className="btn-next"
+                              onClick={ () => {
+                                this.setState({
+                                  posi: posi + 1,
+                                  viewBtnNext: false,
+                                  corSimCorNao: false,
+                                  disabled: false,
+                                  timer: 30,
+                                });
+                                if (posi === n4) {
+                                  history.push('/feedback');
+                                }
+                              } }
+                            >
+                              Next
+                            </button>
+                          )
+                        }
+                      </div>
                     </div>
                   </div>
                 );

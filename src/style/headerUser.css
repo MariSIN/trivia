@@ -2,7 +2,36 @@
   align-items: center;
   background-color: rgba(235, 229, 241, 0.935);
   display: flex;
+  gap: 20px;
   height: 100px;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 40px;
 }
 
+.img-gravatar {
+  border-radius: 100%;
+  margin-right: -5px;
+  width: 40px;
+}
+
+.total-score {
+  background-color: rgb(232, 212, 251);
+  border-radius: 100%;
+  color: rgb(160, 47, 201);
+  font-size: 20px;
+  font-weight: 600;
+  padding: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.title-score, .player {
+  color: rgb(106, 70, 141);
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.player {
+  margin-right: 50px;
+}

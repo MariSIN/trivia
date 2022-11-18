@@ -16,8 +16,11 @@ class HeaderUser extends Component {
           alt={ name }
           className="img-gravatar"
         />
-        <p data-testid="header-player-name">{ name }</p>
-        <p data-testid="header-score">{ score }</p>
+        <p data-testid="header-player-name" className="player">{ name }</p>
+        <p>
+          <span className="title-score">Pontuação:</span>
+          <span data-testid="header-score" className="total-score">{ score }</span>
+        </p>
       </header>
     );
   }

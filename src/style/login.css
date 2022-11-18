@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap') ;
 
-.login-content .title-trivia {
+.login-content .title-trivia, .game-trivia {
   display: flex;
   font-family: Emilys Candy , cursive;
   font-size: 55px;
