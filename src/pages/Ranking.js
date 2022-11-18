@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
+import '../style/ranking.css';
 
 class Ranking extends React.Component {
   state = {
@@ -25,43 +26,44 @@ class Ranking extends React.Component {
     const { rankPlayer } = this.state;
     return (
       <div>
-        <h1 data-testid="ranking-title">Ranking</h1>
         <div />
+        <div className="ranking">
+          <h1 data-testid="ranking-title" className="ranking-title">Ranking</h1>
+          {
+            rankPlayer.map((item, index) => {
+              const hash = md5(item.email).toString();
+              return (
+                <div key={ `${index}${item.score}` } className="ranking-container">
+                  <img
+                    src={ `https://www.gravatar.com/avatar/${hash}` }
+                    alt="Imagem do Player do jogador"
+                  />
+                  <p
+                    data-testid={ `player-name-${index}` }
+                  >
+                    {item.name}
 
-        {
-          rankPlayer.map((item, index) => {
-            const hash = md5(item.email).toString();
-            return (
-              <div key={ `${index}${item.score}` }>
-                <img
-                  src={ `https://www.gravatar.com/avatar/${hash}` }
-                  alt="Imagem do Player do jogador"
-                />
-                <p
-                  data-testid={ `player-name-${index}` }
-                >
-                  {item.name}
+                  </p>
+                  <p data-testid={ `player-score-${index}` }>
+                    {item.score}
 
-                </p>
-                <p data-testid={ `player-score-${index}` }>
-                  {item.score}
+                  </p>
+                </div>
+              );
+            })
+          }
 
-                </p>
-              </div>
-            );
-          })
-        }
-
-        <button
-          type="button"
-          data-testid="btn-go-home"
-          onClick={ () => {
-            const { history } = this.props;
-            history.push('/');
-          } }
-        >
-          Go Home
-        </button>
+          <button
+            type="button"
+            data-testid="btn-go-home"
+            onClick={ () => {
+              const { history } = this.props;
+              history.push('/');
+            } }
+          >
+            Go Home
+          </button>
+        </div>
 
       </div>
     );

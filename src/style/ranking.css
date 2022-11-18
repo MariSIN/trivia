@@ -1,0 +1,26 @@
+.ranking {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.637);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 120px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  width: 400px;
+}
+
+.ranking-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.ranking-title {
+  color: rgb(192, 150, 235);
+  font-size: 35px;
+}

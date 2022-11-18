@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
 import HeaderUser from '../components/HeaderUser';
+import gatim from '../style/imgs/gatim-batendo.gif';
 import '../style/feedback.css';
 
 class Feedback extends Component {
@@ -43,13 +44,14 @@ class Feedback extends Component {
   };
 
   render() {
-    const { score, assertions, history, name, email } = this.props;
+    const { score, assertions, history, name, playerEmail } = this.props;
     const { message } = this.state;
-    const hash = md5(email).toString();
+    const hash = md5(playerEmail).toString();
     return (
       <div className="feedback-container">
         <HeaderUser />
         <div className="feedback">
+          <img src={ gatim } alt="gatim" className="gatim" />
           <img
             data-testid="header-profile-picture"
             src={ `https://www.gravatar.com/avatar/${hash}` }
@@ -107,7 +109,6 @@ Feedback.propTypes = {
   playerEmail: PropTypes.string.isRequired,
   playerName: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Feedback);
