@@ -175,6 +175,7 @@ h1 {
 
 .game-trivia {
   align-items: center;
+  animation: pulse 4s linear 4s infinite;
   background-color: rgb(192, 150, 235);
   bottom: 340px;
   filter: drop-shadow(2px 3px 3px rgba(160, 111, 167, 0.772));
@@ -183,8 +184,32 @@ h1 {
   margin-bottom: -280px;
   position: relative;
   right: 215px;
+  rotate: -45deg;
   transform: rotate(-45deg);
   width: 150px;
+}
+
+@keyframes pulse {
+
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(0.8) rotate(0deg);
+  }
+
+  70% {
+    transform: scale(0.9) rotate(0deg);
+  }
+
+  80% {
+    transform: scale(1.05) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .game-trivia:before, .game-trivia:after {

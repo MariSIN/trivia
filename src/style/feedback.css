@@ -20,6 +20,7 @@
 }
 
 .gravatar-feedback {
+  box-shadow: 2px 2px 3px 0.5px rgba(0, 0, 0, 0.321);
   position: absolute;
   top: 15px;
   width: 190px;
@@ -29,6 +30,7 @@
   background-color: rgb(170, 114, 225);
   border: none;
   border-radius: 5px;
+  box-shadow: 2px 2px 3px 0.5px rgba(48, 5, 42, 0.294);
   color: rgba(255, 255, 255, 0.772);
   cursor: pointer;
   font-size: 18px;
@@ -43,7 +45,7 @@
 
 .btn-play-again:hover, .btn-ranking:hover {
   cursor: pointer;
-  filter: drop-shadow(2px 2px 2px rgba(179, 126, 185, 0.772));
+  filter: drop-shadow(2px 2px 2px rgba(152, 86, 159, 0.772));
   transform: translateY(-2.5px);
   transition: 400ms;
 }
@@ -52,6 +54,7 @@
   align-items: center;
   background-color: rgba(255, 255, 255, 0.698);
   border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(37, 34, 37, 0.361);
   display: flex;
   flex-direction: column;
   gap: 30px;
