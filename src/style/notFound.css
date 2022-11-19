@@ -8,3 +8,9 @@
   justify-content: center;
   margin-top: 60px;
 }
+
+.save-changes {
+  color: rgba(84, 13, 125, 0.491);
+  font-size: 20px;
+  font-weight: 600;
+}

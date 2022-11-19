@@ -65,7 +65,7 @@ class Settings extends React.Component {
     const disappearMessage = 200;
 
     setTimeout(() => {
-      this.setState({ save: 'Saved settings' });
+      this.setState({ save: 'Saved changes' });
       setTimeout(() => {
         this.setState({ save: '' });
       }, saveTime);
@@ -148,7 +148,7 @@ class Settings extends React.Component {
           >
             Save Changes
           </button>
-          <p>{ save }</p>
+          <p className="save-changes">{ save }</p>
         </div>
       </>
     );
