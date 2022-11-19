@@ -60,13 +60,23 @@ class Feedback extends Component {
           />
           <div className="messages">
             <p data-testid="feedback-text" className="feedback-text">{ message }</p>
-            <p data-testid="feedback-total-score">
+            <p>
               <span className="your-score">Your score is </span>
-              <sapn className="total-score">{ score }</sapn>
+              <sapn
+                className="total-score"
+                data-testid="feedback-total-score"
+              >
+                { score }
+              </sapn>
             </p>
-            <p data-testid="feedback-total-question">
+            <p>
               <span className="your-assertions">Your assertions is </span>
-              <span className="total-score">{ assertions }</span>
+              <span
+                data-testid="feedback-total-question"
+                className="total-score"
+              >
+                { assertions }
+              </span>
             </p>
           </div>
           <div className="buttons">

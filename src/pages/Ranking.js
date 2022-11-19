@@ -33,18 +33,23 @@ class Ranking extends React.Component {
             rankPlayer.map((item, index) => {
               const hash = md5(item.email).toString();
               return (
-                <div key={ `${index}${item.score}` } className="ranking-container">
+                <div key={ `${index}${item.score}` } className="ranking-container list">
                   <img
                     src={ `https://www.gravatar.com/avatar/${hash}` }
                     alt="Imagem do Player do jogador"
+                    className="img-ranking"
                   />
                   <p
                     data-testid={ `player-name-${index}` }
+                    className="player-ranking"
                   >
                     {item.name}
 
                   </p>
-                  <p data-testid={ `player-score-${index}` }>
+                  <p
+                    data-testid={ `player-score-${index}` }
+                    className="score-ranking"
+                  >
                     {item.score}
 
                   </p>
