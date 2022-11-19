@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
+import { HiStar } from 'react-icons/hi';
 import '../style/ranking.css';
 
 class Ranking extends React.Component {
@@ -47,11 +48,16 @@ class Ranking extends React.Component {
 
                   </p>
                   <p
-                    data-testid={ `player-score-${index}` }
                     className="score-ranking"
                   >
-                    {item.score}
-
+                    <HiStar className="star star-ranking" />
+                    <span
+                      data-testid={ `player-score-${index}` }
+                      className="total-score-ranking"
+                    >
+                      { item.score }
+                    </span>
+                    pontos
                   </p>
                 </div>
               );
@@ -61,6 +67,7 @@ class Ranking extends React.Component {
           <button
             type="button"
             data-testid="btn-go-home"
+            className="button-go-home"
             onClick={ () => {
               const { history } = this.props;
               history.push('/');
