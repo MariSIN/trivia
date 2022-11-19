@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getURL } from '../redux/actions/action';
 import { TiArrowBack } from 'react-icons/ti';
+import { getURL } from '../redux/actions/action';
 import '../style/settings.css';
 
 const anyDifficulty = 'Any Difficulty';
