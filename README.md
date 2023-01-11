@@ -37,7 +37,7 @@ Foi desenvolvido um jogo de perguntas e respostas baseado no jogo **Trivia** _(t
 
 </details>
 
-  * <details><summary><b> API de Trivia :game_die:</b></summary>
+<details><strong><b> API de Trivia :game_die:</b></strong>
 
     A [API do Trivia](https://opentdb.com/api_config.php) é bem simples. Temos 2 endpoints que vamos precisar utilizar para esse exercício.
 
@@ -120,7 +120,7 @@ Foi desenvolvido um jogo de perguntas e respostas baseado no jogo **Trivia** _(t
     ```
     </details>
 
-  * <details><summary><b> Gravatar :bust_in_silhouette:</b></summary>
+  * <details><strong><b> Gravatar :bust_in_silhouette:</b></strong>
 
     O Gravatar é um serviço que permite deixar o avatar global a partir do email cadastrado, ele mostra sua foto cadastrada em qualquer site vinculado. Na tela de **Inicio**, a pessoa que joga pode colocar um e-mail que deve fazer uma consulta a API do [Gravatar](https://br.gravatar.com/site/implement/images/).
 
