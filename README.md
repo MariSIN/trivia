@@ -114,8 +114,8 @@
     }
     ```
     </details>
-
-  * <details><strong><b> Gravatar :bust_in_silhouette:</b></strong>
+    
+ * <details><summary><b> Gravatar :bust_in_silhouette:</b></summary>
 
     O Gravatar é um serviço que permite deixar o avatar global a partir do email cadastrado, ele mostra sua foto cadastrada em qualquer site vinculado. Na tela de **Inicio**, a pessoa que joga pode colocar um e-mail que deve fazer uma consulta a API do [Gravatar](https://br.gravatar.com/site/implement/images/).
 
@@ -144,4 +144,3 @@
 
     ```
     </details>
-
