@@ -34,16 +34,14 @@
 
 <details><summary><strong>API do Trivia</strong></summary>
 
-    A [API do Trivia](https://opentdb.com/api_config.php) é bem simples. Temos 2 endpoints que vamos precisar utilizar para esse exercício.
+    * A [API do Trivia](https://opentdb.com/api_config.php) é bem simples. Temos 2 endpoints que vamos precisar utilizar para esse exercício.
 
-    * **Pegar o token de sessão da pessoa que está jogando**
-    * **Pegar perguntas e respostas**
+      - Pegar o token de sessão da pessoa que está jogando
+      - Pegar perguntas e respostas
 
-    Primeiro, é necessário fazer um GET request para:
+    *Primeiro, é necessário fazer um GET request para:
 
-    ```
-    https://opentdb.com/api_token.php?command=request
-    ```
+      - https://opentdb.com/api_token.php?command=request
 
     Esse endpoint te retornará o token que vai ser utilizado nas requisições seguintes. A resposta dele será:
 
@@ -55,16 +53,16 @@
     }
     ```
 
-    Para pegar as perguntas, você deve realizar um GET request para o seguinte endpoint:
+    * Para pegar as perguntas, você deve realizar um GET request para o seguinte endpoint:
 
     ```javascript
-    https://opentdb.com/api.php?amount=${quantidade-de-perguntas-retornadas}&token=${seu-token-aqui}
+       https://opentdb.com/api.php?amount=${quantidade-de-perguntas-retornadas}&token=${seu-token-aqui}
 
     // Recomendação
     https://opentdb.com/api.php?amount=5&token=${seu-token-aqui}
     ```
 
-    Recomendamos pedir 5 perguntas de uma vez e controlar a disposição delas no código. Essa API te retorna as perguntas no seguinte formato:
+    * Recomendamos pedir 5 perguntas de uma vez e controlar a disposição delas no código. Essa API te retorna as perguntas no seguinte formato:
 
     ```json
     // Pergunta de múltipla escolha
@@ -105,7 +103,7 @@
       ]
     }
     ```
-    O token expira em 6 horas e te retornará um `response_code: 3` caso esteja expirado. **Atenção para que seu código contemple isso!** Caso o token seja inválido, essa será a resposta da API:
+    * O token expira em 6 horas e te retornará um `response_code: 3` caso esteja expirado. **Atenção para que seu código contemple isso!** Caso o token seja inválido, essa será a resposta da API:
 
     ```json
     {
