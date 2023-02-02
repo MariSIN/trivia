@@ -32,7 +32,7 @@
   - Escrever testes para garantir que sua aplicação possua uma boa cobertura de testes.
 </details>
 
-<details><strong><b> API de Trivia :game_die:</b></strong>
+<details><summary><strong>API do Trivia</strong></summary>
 
     A [API do Trivia](https://opentdb.com/api_config.php) é bem simples. Temos 2 endpoints que vamos precisar utilizar para esse exercício.
 
